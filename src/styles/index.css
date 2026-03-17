@@ -154,7 +154,7 @@ section {
 
 .btn-outline {
   background: transparent;
-  color: var(--color-accent);
+  color: #1a202c;
   border: 2px solid var(--color-accent);
 }
 
@@ -217,4 +217,38 @@ section {
 
 .border-indian {
   border: 4px double var(--color-accent);
+}
+
+/* Text visibility utilities */
+.text-visible {
+  color: #1a202c !important;
+}
+
+.text-white-on-dark {
+  color: white !important;
+}
+
+.text-dark-on-light {
+  color: #2d3748 !important;
+}
+
+/* Global button fixes for text visibility */
+.btn {
+  color: inherit !important;
+}
+
+.btn.btn-outline {
+  color: #1a202c !important;
+  border-color: var(--color-accent) !important;
+}
+
+.btn.btn-outline:hover {
+  color: white !important;
+  background: var(--color-accent) !important;
+}
+
+.btn.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-warm)) !important;
+  color: white !important;
+  border: none !important;
 }

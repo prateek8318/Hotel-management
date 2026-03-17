@@ -82,6 +82,11 @@ const Gallery: React.FC = () => {
     ? galleryImages 
     : galleryImages.filter(img => img.category === selectedCategory);
 
+  const handleCategoryChange = (categoryId: string) => {
+    console.log('Filter changed to:', categoryId);
+    setSelectedCategory(categoryId);
+  };
+
   return (
     <section className="gallery-section">
       <div className="container">
@@ -93,33 +98,50 @@ const Gallery: React.FC = () => {
         </div>
 
         <div className="gallery-categories">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`category-btn ${selectedCategory === category.id ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(category.id)}
-            >
-              <span className="category-icon">{category.icon}</span>
-              <span className="category-name">{category.name}</span>
-            </button>
-          ))}
+          {categories.map((category) => {
+            const count = category.id === 'all' 
+              ? galleryImages.length 
+              : galleryImages.filter(img => img.category === category.id).length;
+            return (
+              <button
+                key={category.id}
+                className={`category-btn ${selectedCategory === category.id ? 'active' : ''}`}
+                onClick={() => handleCategoryChange(category.id)}
+                aria-label={`Filter by ${category.name}`}
+                aria-pressed={selectedCategory === category.id}
+              >
+                <span className="category-icon">{category.icon}</span>
+                <span className="category-name">{category.name}</span>
+                <span className="category-count">({count})</span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="gallery-grid">
-          {filteredImages.map((image, index) => (
-            <div key={image.id} className="gallery-item" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="gallery-image">
-                <img src={image.imageUrl} alt={image.title} loading="lazy" />
-              </div>
-              <div className="gallery-overlay">
-                <div className="overlay-content">
-                  <h4>{image.title}</h4>
-                  <p>{image.description}</p>
-                  <button className="view-btn">View Details</button>
+          {filteredImages.length > 0 ? (
+            filteredImages.map((image, index) => (
+              <div key={image.id} className="gallery-item" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="gallery-image">
+                  <img src={image.imageUrl} alt={image.title} loading="lazy" />
+                </div>
+                <div className="gallery-overlay">
+                  <div className="overlay-content">
+                    <h4>{image.title}</h4>
+                    <p>{image.description}</p>
+                    <button className="view-btn">View Details</button>
+                  </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="no-results">
+              <div className="no-results-content">
+                <h3>No images found</h3>
+                <p>Try selecting a different category to view more images.</p>
+              </div>
             </div>
-          ))}
+          )}
         </div>
 
         <div className="gallery-features">

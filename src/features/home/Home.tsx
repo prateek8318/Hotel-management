@@ -6,6 +6,7 @@ import Gallery from './Gallery';
 import BookingForm from '../booking/BookingForm';
 import FeaturedRooms from '../rooms/FeaturedRooms';
 import Contact from '../contact/Contact';
+import SpecialOffers from './SpecialOffers';
 
 const Home: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
       <Gallery />
       <Testimonials />
       <BookingForm />
+      <SpecialOffers />
       <Contact />
     </div>
   );

@@ -90,6 +90,34 @@
   z-index: 2;
 }
 
+/* Specific button styling for FeaturedRooms section */
+.view-all-container .btn-primary {
+  background: linear-gradient(135deg, #d4af37, #dc2626);
+  color: white;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+}
+
+.view-all-container .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.4);
+}
+
+.view-all-container .btn-outline {
+  background: transparent;
+  color: #1a202c;
+  border: 2px solid #d4af37;
+  font-weight: 600;
+}
+
+.view-all-container .btn-outline:hover {
+  background: #d4af37;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+}
+
 .btn-lg {
   padding: 1rem 2.5rem;
   font-size: 1.1rem;

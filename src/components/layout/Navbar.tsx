@@ -89,15 +89,15 @@ const Navbar: React.FC = () => {
             <li><Link to="/contact" className={`mobile-nav-link ${isActiveLink('/contact') ? 'active' : ''}`} onClick={handleMobileNavClick}>Contact</Link></li>
           </ul>
           <div className="mobile-nav-actions">
-            <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+            <div className="flex items-center gap-2 text-sm mb-4 mobile-contact-info">
               <Phone size={16} />
               <span>+91 98765 43210</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+            <div className="flex items-center gap-2 text-sm mb-4 mobile-contact-info">
               <Mail size={16} />
               <span>info@dreamstay.in</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+            <div className="flex items-center gap-2 text-sm mb-4 mobile-contact-info">
               <MapPin size={16} />
               <span>New Delhi, India</span>
             </div>
